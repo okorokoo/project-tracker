@@ -1,15 +1,31 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1>{{ project.name }}</h1>
-    <p>{{ project.description }}</p>
+    <h1>Проект: {{ project.name }}</h1>
+    <p>Описание: {{ project.description }}</p>
 
-    <h2>Задачи в проекте</h2>
+    <h2>Задачи</h2>
     <ul>
         {% for task in project.tasks.all %}
             <li><a href="{% url 'tasks:task_detail' project.id task.id %}">{{ task.name }}</a> - {{ task.status }}</li>
         {% empty %}
             <li>В этом проекте пока нет задач.</li>
+        {% endfor %}
+    </ul>
+    <h2>Баги</h2>
+    <ul>
+        {% for bug in project.bug_reports.all %}
+            <li><a href="{% url 'quality_control:bug_detail' bug.id%}">{{ bug.title }}</a> - {{ bug.status }}</li>
+        {% empty %}
+            <li>В этом проекте пока нет багов.</li>
+        {% endfor %}
+    </ul>
+    <h2>Запросы на улучшение</h2>
+    <ul>
+        {% for feature in project.feature_requests.all %}
+            <li><a href="{% url 'quality_control:feature_id_detail' feature.id%}">{{ feature.title }}</a> - {{ feature.status }}</li>
+        {% empty %}
+            <li>В этом проекте пока нет запросов на улучшение.</li>
         {% endfor %}
     </ul>
 {% endblock %}

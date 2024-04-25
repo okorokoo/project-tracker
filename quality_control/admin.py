@@ -26,8 +26,6 @@ class BugReportAdmin(admin.ModelAdmin):
     list_filter = ('status', 'priority', 'project', 'task')
     search_fields = ('name', 'description')
 
-    # inlines = [TaskInline]
-
 
 @admin.register(FeatureRequest)
 class FeatureRequestAdmin(admin.ModelAdmin):
