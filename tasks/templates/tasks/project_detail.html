@@ -4,6 +4,9 @@
     <h1>Проект: {{ project.name }}</h1>
     <p>Описание: {{ project.description }}</p>
 
+    <!-- Ссылка для добавления новой задачи -->
+    <p><a href="{% url 'tasks:add_task_to_project' project.id %}">Добавить новую задачу</a></p>
+
     <h2>Задачи</h2>
     <ul>
         {% for task in project.tasks.all %}
