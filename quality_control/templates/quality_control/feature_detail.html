@@ -6,4 +6,7 @@
     <h1>Проект <a href="{% url 'tasks:project_detail' project.id %}">{{ feature.project }}</a> </h1>
     <h1>Задача <a href="{% url 'tasks:task_detail' task.id project.id %}">{{ feature.task }}</a> </h1>
 
+    <p><a href="{% url 'quality_control:update_feature' project.id feature.id %}">Изменить запрос улучшения</a></p>
+    <p><a href="{% url 'quality_control:delete_feature_request' feature.id %}"onclick="return confirm('Вы уверены, что хотите удалить этот запрос?');">Удалить запрос улучшения</a></p>
+
 {% endblock %}
