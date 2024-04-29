@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h1>Проект <a href="{% url 'tasks:project_detail' project.id %}">{{ project.name }}</a></h1>
+
+<h2>Создать запрос на улучшение</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+{% endblock %}

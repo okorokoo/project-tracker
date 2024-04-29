@@ -6,6 +6,8 @@ app_name = 'quality_control'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('project/<int:project_id>/bugs/new/', views.create_bug_report, name='create_bug_report'),
+    path('project/<int:project_id>/features/new/', views.create_feature_request, name='create_feature_request'),
     path('bugs/', include([
         path('', views.bug_list, name='bug_list'),
         path('<int:bug_id>/', views.BugReportDetailView.as_view(), name='bug_detail'),

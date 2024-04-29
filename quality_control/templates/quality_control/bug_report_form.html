@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h2>Добавить отчёт о баге в задачу {{ task.name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Создать отчёт о баге</button>
+    </form>
+{% endblock %}

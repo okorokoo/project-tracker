@@ -1,8 +1,11 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1>{{ task.name }}</h1>
-    <p>{{ task.description }}</p>
+    <h1>Задача {{ task.name }}</h1>
+    <p>Описание: {{ task.description }}</p>
+    <h1>Проект <a href="{% url 'tasks:project_detail' project.id%}">{{ project.name }}</a> </h1>
+    <p>Описание: {{ project.description }}</p>
+
     <h2>Баги</h2>
     <ul>
         {% for bug in task.bug_reports.all %}

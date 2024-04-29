@@ -4,7 +4,7 @@
     <h1>Список запросов на улучшение</h1>
     <ul>
         {% for feature in features_list %}
-            <li><a href="{% url 'quality_control:feature_id_detail' feature.id %}">{{ feature.title }}</a></li>
+            <li><a href="{% url 'quality_control:feature_id_detail' feature.id %}">{{ feature.title }} - {{ feature.project }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

@@ -4,7 +4,7 @@
     <h1>Список багов</h1>
     <ul>
         {% for bug in bugs_list %}
-            <li><a href="{% url 'quality_control:bug_detail' bug.id %}">{{ bug.title }}</a></li>
+            <li><a href="{% url 'quality_control:bug_detail' bug.id %}">{{ bug.title }} - {{ bug.project }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

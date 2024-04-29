@@ -1,12 +1,9 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1>{{ feature.title }}</h1>
-    <p>Description: {{ feature.description }}</p>
-    <p>Status: {{feature.status }}</p>
-    <p>Priority: {{ feature.priority }}</p>
-    <h2>Задача</h2>
-    <a href="{% url 'tasks:task_detail' project.id task.id %}">{{ task.name }}</a>
-    <h2>Проект</h2>
-    <a href="{% url 'tasks:project_detail' project.id %}">{{ project.name }}</a>
+    <h1>Запрос на улучшение {{ feature.title }}</h1>
+    <p>Описание: {{ feature.description }}</p>
+    <h1>Проект <a href="{% url 'tasks:project_detail' project.id %}">{{ feature.project }}</a> </h1>
+    <h1>Задача <a href="{% url 'tasks:task_detail' task.id project.id %}">{{ feature.task }}</a> </h1>
+
 {% endblock %}
