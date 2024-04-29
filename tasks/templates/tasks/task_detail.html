@@ -6,6 +6,9 @@
     <h1>Проект <a href="{% url 'tasks:project_detail' project.id%}">{{ project.name }}</a> </h1>
     <p>Описание: {{ project.description }}</p>
 
+    <a href="{% url 'tasks:update_task' project_id=task.project.id task_id=task.id %}">Изменить задачу</a>
+    <p><a href="{% url 'tasks:delete_task' project_id=task.project.id task_id=task.id %}" onclick="return confirm('Вы уверены, что хотите удалить эту задачу?');">Удалить задачу</a></p>
+
     <h2>Баги</h2>
     <ul>
         {% for bug in task.bug_reports.all %}

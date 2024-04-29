@@ -4,6 +4,6 @@
     <h1>Баг {{ bug.title }}</h1>
     <p>Описание: {{ bug.description }}</p>
     <h1>Проект <a href="{% url 'tasks:project_detail' project.id %}">{{ bug.project }}</a> </h1>
-    <h1>Задача <a href="{% url 'tasks:task_detail' task.id project.id %}">{{ bug.task }}</a> </h1>
+    <h1>Задача <a href="{% url 'tasks:task_detail' project.id task.id %}">{{ bug.task }}</a> </h1>
 
 {% endblock %}

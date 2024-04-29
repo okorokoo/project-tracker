@@ -19,7 +19,7 @@ class BugReport(models.Model):
     task = models.ForeignKey(
         Task,
         related_name='bug_reports',
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
         null=True,
         blank=True
     )
@@ -54,7 +54,7 @@ class FeatureRequest(models.Model):
     task = models.ForeignKey(
         Task,
         related_name='feature_requests',
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
         null=True,
         blank=True
     )
